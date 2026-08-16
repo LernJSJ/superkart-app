@@ -33,10 +33,10 @@ product_data = {
 if st.button("Predict", type='primary'):
     api_url = "https://LernJS-superkart-sales-prediction-api-ljs.hf.space/v1/predict"
     response = requests.post(api_url, json=product_data)
-    
+
     if response.status_code == 200:
       result = response.json()
       predicted_sales = result["Sales"]
-      st.success(f"Predicted Product Store Sales Total: ₹{predicted_sales:.2f}")
+      st.success(f"Predicted Product Store Sales Total: ${predicted_sales:.2f}")
     else:
       st.error(f"Error in API request: {response.status_code}")
