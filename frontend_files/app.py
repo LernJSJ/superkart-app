@@ -11,7 +11,8 @@ Product_MRP = st.number_input("Product MRP", min_value=0.0, value=150.0)
 Store_Size = st.selectbox("Store Size", ["High", "Medium", "Small"]) 
 Store_Location_City_Type = st.selectbox("Store Location City Type", ["Tier 1", "Tier 2", "Tier 3"])
 Store_Type = st.selectbox("Store Type", ["Supermarket Type1", "Supermarket Type2", "Departmental Store", "Food Mart"])
-Product_Id_char = st.text_input("Product ID Char", value="FD") Store_Age_Years = st.number_input("Store Age (Years)", min_value=0, value=5) 
+Product_Id_char = st.text_input("Product ID Char", value="FD") 
+Store_Age_Years = st.number_input("Store Age (Years)", min_value=0, value=5) 
 Product_Type_Category = st.selectbox("Product Type Category", ["Foods", "Goods", "Beverages", "Others"])
 
 
@@ -34,6 +35,6 @@ if st.button("Predict", type='primary'):
     if response.status_code == 200:
       result = response.json()
       predicted_sales = result["Sales"]
-      st.success(f"✅ Predicted Product Store Sales Total: ₹{predicted_sales:.2f}")
+      st.success(f"Predicted Product Store Sales Total: ₹{predicted_sales:.2f}")
     else:
-      st.error(f"❌ Error in API request: {response.status_code}")
+      st.error(f"Error in API request: {response.status_code}")
